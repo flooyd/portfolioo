@@ -1,10 +1,17 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import * as animateScroll from "svelte-scrollto";
+
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
   let finishedName = [];
   let finishedResume = [];
   let resumeHovered = false;
 
   $: console.log(resumeHovered);
+
+  onMount(() => {
+    animateScroll.scrollToTop();
+  });
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
