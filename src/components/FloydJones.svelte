@@ -314,7 +314,7 @@
 
     span {
       margin: 0px !important;
-      font-size: 35px !important;
+      font-size: 32px !important;
     }
 
     .nameSpan,

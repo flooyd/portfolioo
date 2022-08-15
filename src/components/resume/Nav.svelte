@@ -17,8 +17,7 @@
     width: calc(100% - 40px);
     justify-content: space-between;
     align-items: center;
-    font-size: 35px;
-
+    font-size: 32px;
     padding: 8px 20px;
     padding-left: 20px;
     border-bottom: 4px solid var(--light-green);
