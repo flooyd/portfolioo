@@ -57,14 +57,14 @@
   </p>
 
   <div class="links">
-    <a class="rightBorder" href="https://github.com/flooyd">
+    <a href="https://github.com/flooyd">
       <img
         class="link"
         src="images/iconmonstr-github-1-32.png"
         alt="github"
       /></a
     >
-
+    <div class="rightBorder" />
     <a href="https://www.linkedin.com/in/floyd-jones-2a51099a/"
       ><img
         class="link"
