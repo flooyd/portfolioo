@@ -53,7 +53,7 @@
   <div class="header">full stack developer</div>
   <p>
     I am looking for a role in front end development primarily (with React, Vue,
-    or Svelte).
+    or Svelte). I prefer Node or .NET for back end.
   </p>
 
   <div class="links">
