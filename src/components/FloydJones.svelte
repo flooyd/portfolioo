@@ -1,16 +1,27 @@
 <script lang="ts">
-  let background = "var(--blue-sapphire)";
-
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
   let finishedName = [];
-  let finishedText = [];
+  let finishedResume = [];
+  let resumeHovered = false;
+
+  $: console.log(resumeHovered);
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  const getColor = (n, vertical) => {
-    const random = vertical ? getRandomInt(4, 5) : getRandomInt(1, 3);
+  const getColor = (n, vertical, resume = null) => {
+    let random = vertical ? getRandomInt(4, 5) : getRandomInt(1, 3);
+
+    if (resume && !resumeHovered) {
+      return "white";
+    }
+
+    if (resume) {
+      random = getRandomInt(1, 11);
+    }
+
+    if (resume && random === 4) return;
 
     if (n === "O") {
       return "white";
@@ -27,6 +38,18 @@
         return "var(--blue-sapphire)";
       case 5:
         return "white";
+      case 6:
+        return "yellow";
+      case 7:
+        return "red";
+      case 8:
+        return "green";
+      case 9:
+        return "blue";
+      case 10:
+        return "purple";
+      case 11:
+        return "pink";
       default:
         break;
     }
@@ -43,9 +66,19 @@
       });
     });
   }, 100);
+
+  setInterval(() => {
+    finishedResume = [];
+    "resume".split("").forEach((n) => {
+      finishedResume.push({
+        name: n,
+        random: getColor(n, false, true),
+      });
+    });
+  }, 100);
 </script>
 
-<main style="background: {background}">
+<main>
   <div class="verticalNames">
     <div class="verticalName">
       {#each finishedName as letter}
@@ -139,6 +172,18 @@
     or Svelte). I prefer Node or .NET for back end
   </div>
   <div class="links">
+    <div
+      class="resume"
+      on:mouseleave={() => (resumeHovered = false)}
+      on:mouseenter={() => (resumeHovered = true)}
+    >
+      {#each finishedResume as letter}
+        <span class="resume" style="color: {getColor(letter, false, true)}"
+          >{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="rightBorder" />
     <a href="https://github.com/flooyd">
       <img
         class="link"
@@ -167,6 +212,8 @@
     justify-content: center;
     height: 100vh;
     margin: 0px;
+    color: black;
+    background: var(--blue-sapphire);
   }
 
   .verticalNames {
@@ -174,6 +221,7 @@
     width: 100%;
     justify-content: space-evenly;
     opacity: 0.5;
+    margin-bottom: 20px;
   }
 
   .verticalName {
@@ -191,6 +239,12 @@
     font-size: 13px;
   }
 
+  .resume {
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
   .mb15 {
     margin-bottom: 15px;
   }
@@ -205,14 +259,13 @@
     width: fit-content;
     font-size: 119px;
     color: var(--light-green);
-    border-bottom: 6px solid white;
+    border-bottom: 6px solid var(--blue-sapphire);
     font-family: "Montserrat", sans-serif;
   }
 
   .header {
     font-size: 35px;
     color: var(--light-green);
-
     width: fit-content;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -224,8 +277,11 @@
   }
 
   .links {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
+    background: var(--blue-sapphire);
+    padding: 16px;
+    border-radius: 8px;
   }
 
   .rightBorder {

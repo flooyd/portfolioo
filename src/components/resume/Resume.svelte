@@ -7,7 +7,7 @@
   console.log($resume);
 </script>
 
-<main>
+<section id="resume">
   <Nav />
   <div />
   {#if !$viewing}
@@ -32,14 +32,14 @@
     <Output property="Github" />
     <Output property="LinkedIn" />
   </div>
-</main>
+</section>
 
 <style>
   :global(html) {
     background: var(--cultured) !important;
   }
 
-  main {
+  section {
     background: var(--cultured);
     font-family: "Roboto", sans-serif;
     padding-top: 0px;
