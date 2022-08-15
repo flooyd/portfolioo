@@ -187,6 +187,9 @@
       class="resume"
       on:mouseleave={() => (resumeHovered = false)}
       on:mouseenter={() => (resumeHovered = true)}
+      on:click={() => {
+        animateScroll.scrollTo({ element: "#resume" });
+      }}
     >
       {#each finishedResume as letter}
         <span class="resume" style="color: {getColor(letter, false, true)}"

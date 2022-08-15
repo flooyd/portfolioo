@@ -20,10 +20,10 @@
     font-size: 32px;
     padding: 8px 20px;
     padding-left: 20px;
+    background: var(--blue-sapphire);
     border-bottom: 4px solid var(--light-green);
     border-bottom: 4px solid var(--blue-sapphire);
-
-    background: var(--cultured);
+    color: white;
   }
   .navbar-title {
     color: var(--oxford-blue);

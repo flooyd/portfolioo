@@ -3,8 +3,11 @@
   import Editor from "./Editor.svelte";
   import Nav from "./Nav.svelte";
   import Output from "./Output.svelte";
+  import * as animateScroll from "svelte-scrollto";
 
-  console.log($resume);
+  let y;
+
+  $: console.log(y);
 </script>
 
 {#if $ready}
@@ -33,8 +36,19 @@
       <Output property="Github" />
       <Output property="LinkedIn" />
     </div>
+    {#if y > 0}
+      <div
+        class="top"
+        on:click={() => {
+          animateScroll.scrollToTop({ duration: 100 });
+        }}
+      >
+        top
+      </div>
+    {/if}
   </section>
 {/if}
+<svelte:window bind:scrollY={y} />
 
 <style>
   :global(html) {
@@ -64,5 +78,24 @@
   .outputs {
     height: calc(100vh - 75px);
     margin: 0px 20px;
+  }
+
+  .top {
+    position: fixed;
+    bottom: 20px;
+    left: calc(50% - 35px);
+    width: 70px;
+    text-align: center;
+    background: var(--blue-sapphire);
+    color: white;
+    border-radius: 8px;
+    border: 2px solid black;
+  }
+
+  .top:hover {
+    background: var(--cultured);
+    color: black;
+    cursor: pointer;
+    border: 2px solid black;
   }
 </style>
