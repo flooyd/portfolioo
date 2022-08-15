@@ -2,9 +2,6 @@
   let background = "var(--blue-sapphire)";
 
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
-  let text = `I am looking for a role in front end development primarily 
-    (with React, Vue, or Svelte). 
-    I prefer Node or .NET for back end"`.split("");
   let finishedName = [];
   let finishedText = [];
 
@@ -46,21 +43,50 @@
       });
     });
   }, 100);
-
-  setInterval(() => {
-    finishedText = [];
-    text.forEach((n) => {
-      finishedText.push({
-        name: n,
-        random: getColor(n, false),
-      });
-    });
-    console.log(finishedText);
-  }, 100);
 </script>
 
 <main style="background: {background}">
   <div class="verticalNames">
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
     <div class="verticalName">
       {#each finishedName as letter}
         <span
@@ -108,7 +134,10 @@
     {/each}
   </div>
   <div class="header">full stack developer</div>
-
+  <div class="about">
+    I am looking for a role in front end development primarily (with React, Vue,
+    or Svelte). I prefer Node or .NET for back end
+  </div>
   <div class="links">
     <a href="https://github.com/flooyd">
       <img
@@ -164,6 +193,10 @@
 
   .mb15 {
     margin-bottom: 15px;
+  }
+
+  .about {
+    color: white;
   }
 
   .name {
