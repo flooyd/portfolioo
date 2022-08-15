@@ -1,5 +1,5 @@
 <script>
-  import resume from "../../stores/resume";
+  import resume, { showModal, selectedProperty } from "../../stores/resume";
 
   export let property = "";
   export let label = "";
@@ -7,11 +7,21 @@
   const handleInput = (e) => {
     $resume[property] = e.target.value;
     $resume = $resume;
+    localStorage.setItem("resume", JSON.stringify($resume));
+  };
+
+  const handleStyleClicked = () => {
+    $showModal = true;
+    $selectedProperty = property;
   };
 </script>
 
 <div class="editor">
-  <label for={property}><span>{label}</span><button>+ style</button></label>
+  <label for={property}
+    ><span>{label}</span><button on:click={() => handleStyleClicked()}
+      >+ style</button
+    ></label
+  >
   <input
     value={$resume[property] ? $resume[property] : ""}
     name={property}

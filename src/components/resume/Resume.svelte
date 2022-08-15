@@ -1,17 +1,25 @@
 <script lang="ts">
-  import resume, { viewing, ready } from "../../stores/resume";
+  import resume, { viewing, ready, showModal } from "../../stores/resume";
   import Editor from "./Editor.svelte";
   import Nav from "./Nav.svelte";
   import Output from "./Output.svelte";
   import * as animateScroll from "svelte-scrollto";
-
+  import Modal from "./Modal.svelte";
+  import StyleModal from "./StyleModal.svelte";
+  import { onMount } from "svelte";
   let y;
-
-  $: console.log(y);
+  onMount(() => {
+    $resume = localStorage.getItem("resume")
+      ? JSON.parse(localStorage.getItem("resume"))
+      : $resume;
+  });
 </script>
 
 {#if $ready}
   <section id="resume">
+    {#if $showModal}
+      <StyleModal />
+    {/if}
     <Nav />
     <div />
     {#if !$viewing}
@@ -36,7 +44,7 @@
       <Output property="Github" />
       <Output property="LinkedIn" />
     </div>
-    {#if y > 0}
+    {#if y > 0 && $showModal === false}
       <div
         class="top"
         on:click={() => {
@@ -61,6 +69,7 @@
     padding-top: 0px;
     font-size: 16px;
     overflow-y: auto;
+    position: relative;
   }
 
   div {
@@ -82,7 +91,7 @@
 
   .top {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     left: calc(50% - 35px);
     width: 70px;
     text-align: center;

@@ -41,4 +41,9 @@
     border: 2px solid black;
     margin: 0px;
   }
+
+  button:hover {
+    background: var(--cultured);
+    color: black;
+  }
 </style>

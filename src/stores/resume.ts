@@ -24,17 +24,31 @@ const resume = writable<Resume>({
   linkedin: null,
 });
 
-export type styles = {
-  name: [];
-  subname: [];
-  email: [];
-  phone: [];
-  location: [];
-  website: [];
-  github: [];
-  linkedin: [];
+export type Styles = {
+  Name: [];
+  Subname: [];
+  Email: [];
+  Phone: [];
+  Location: [];
+  Website: [];
+  Github: [];
+  Linkedin: [];
 };
+
+export const styles = writable<Styles>({
+  Name: [],
+  Subname: [],
+  Email: [],
+  Phone: [],
+  Location: [],
+  Website: [],
+  Github: [],
+  Linkedin: [],
+});
 
 export const viewing = writable<boolean>(false);
 export const ready = writable(false);
+export const showModal = writable(false);
+export const selectedProperty = writable<string>("");
+
 export default resume;
