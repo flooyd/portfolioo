@@ -247,6 +247,7 @@
     margin: 0px;
     padding: 0px;
     text-align: center;
+    user-select: none;
   }
 
   .nameSpan {
