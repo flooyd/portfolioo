@@ -18,7 +18,7 @@
     }
 
     if (resume) {
-      random = getRandomInt(1, 11);
+      random = getRandomInt(1, 13);
     }
 
     if (resume && random === 4) return;
@@ -50,6 +50,10 @@
         return "purple";
       case 11:
         return "pink";
+      case 12:
+        return "black";
+      case 13:
+        return "orange";
       default:
         break;
     }
