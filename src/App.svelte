@@ -3,4 +3,5 @@
   import Resume from "./components/resume/Resume.svelte";
 </script>
 
+<FloydJones/>
 <Resume />
