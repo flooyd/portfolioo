@@ -90,6 +90,7 @@
     color: white;
     border-radius: 8px;
     border: 2px solid black;
+    user-select: none;
   }
 
   .top:hover {
