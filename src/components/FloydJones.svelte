@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { ready } from "../stores/resume";
   import * as animateScroll from "svelte-scrollto";
 
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
@@ -7,10 +8,9 @@
   let finishedResume = [];
   let resumeHovered = false;
 
-  $: console.log(resumeHovered);
-
   onMount(() => {
     animateScroll.scrollToTop();
+    $ready = true;
   });
 
   function getRandomInt(min, max) {

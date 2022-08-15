@@ -36,5 +36,5 @@ export type styles = {
 };
 
 export const viewing = writable<boolean>(false);
-
+export const ready = writable(false);
 export default resume;
