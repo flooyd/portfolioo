@@ -188,7 +188,7 @@
       on:mouseleave={() => (resumeHovered = false)}
       on:mouseenter={() => (resumeHovered = true)}
       on:click={() => {
-        animateScroll.scrollTo({ element: "#resume" });
+        animateScroll.scrollTo({ element: "#resume", duration: 100 });
       }}
     >
       {#each finishedResume as letter}
