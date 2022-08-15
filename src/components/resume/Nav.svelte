@@ -23,9 +23,7 @@
     padding-left: 20px;
     border-bottom: 4px solid var(--light-green);
     border-bottom: 4px solid var(--blue-sapphire);
-    position: fixed;
-    top: 0px;
-    z-index: 500;
+
     background: var(--cultured);
   }
   .navbar-title {
