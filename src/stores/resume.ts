@@ -24,6 +24,17 @@ const resume = writable<Resume>({
   linkedin: null,
 });
 
+export type styles = {
+  name: [];
+  subname: [];
+  email: [];
+  phone: [];
+  location: [];
+  website: [];
+  github: [];
+  linkedin: [];
+};
+
 export const viewing = writable<boolean>(false);
 
 export default resume;

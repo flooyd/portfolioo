@@ -11,7 +11,7 @@
 </script>
 
 <div class="editor">
-  <label for={property}>{label}</label>
+  <label for={property}><span>{label}</span><button>+ style</button></label>
   <input
     value={$resume[property] ? $resume[property] : ""}
     name={property}
@@ -28,16 +28,22 @@
     justify-content: space-evenly;
     background: var(--cultured);
     margin-bottom: 31px;
+    width: 380px;
   }
 
   .editor label {
-    width: fit-content;
+    display: flex;
+    gap: 10px;
     font-size: 20px;
     color: var(--blue-sapphire);
     font-weight: bold;
     padding-bottom: 2px;
     margin-bottom: 8px;
+  }
+
+  .editor span {
     border-bottom: 4px solid lightgreen;
+    width: 100px;
   }
 
   .editor input {
@@ -49,21 +55,16 @@
     margin-left: 2px;
   }
 
-  .editor button {
-    width: 100px;
-    height: 35px;
-    color: white;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: var(--blue-sapphire);
-    border: 2px solid black;
-    margin: 0px;
+  button {
+    color: red;
+    margin-left: 8px;
+    background: var(--cultured);
+    color: black;
+    border-radius: 8px;
   }
 
-  .editor button:hover {
-    background: #fff;
-    color: #000;
+  button:hover {
+    background: var(--light-green);
+    cursor: pointer;
   }
 </style>

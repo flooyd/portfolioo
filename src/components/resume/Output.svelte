@@ -3,6 +3,8 @@
   export let property;
 </script>
 
-{#if $resume[property]}
-  {$resume[property]}
-{/if}
+<div class="output">
+  {#if $resume[property]}
+    {$resume[property]}
+  {/if}
+</div>
