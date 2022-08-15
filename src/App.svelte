@@ -2,14 +2,19 @@
   let background = "var(--blue-sapphire)";
 
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
+  let text = `I am looking for a role in front end development primarily 
+    (with React, Vue, or Svelte). 
+    I prefer Node or .NET for back end"`.split("");
   let finishedName = [];
+  let finishedText = [];
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  const getColor = (n) => {
-    const random = getRandomInt(1, 5);
+  const getColor = (n, vertical) => {
+    const random = vertical ? getRandomInt(4, 5) : getRandomInt(1, 3);
+
     if (n === "O") {
       return "white";
     }
@@ -21,40 +26,88 @@
         return "hsla(154, 53%, 57%, 1)";
       case 3:
         return "hsla(181, 49%, 43%, 1)";
+      case 4:
+        return "var(--blue-sapphire)";
+      case 5:
+        return "white";
       default:
         break;
     }
   };
 
-  name.forEach((n) => {
-    finishedName.push({
-      name: n,
-      random: getColor(n),
-    });
-  });
-
   setInterval(() => {
     finishedName = [];
     name.forEach((n) => {
+      const className = n === "D" ? "mb15" : "";
       finishedName.push({
         name: n,
-        random: getColor(n),
+        random: getColor(n, false),
+        className,
       });
     });
+  }, 100);
+
+  setInterval(() => {
+    finishedText = [];
+    text.forEach((n) => {
+      finishedText.push({
+        name: n,
+        random: getColor(n, false),
+      });
+    });
+    console.log(finishedText);
   }, 100);
 </script>
 
 <main style="background: {background}">
-  <div class="name">
+  <div class="verticalNames">
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+    <div class="verticalName">
+      {#each finishedName as letter}
+        <span
+          class="verticalSpan {letter.className}"
+          style="color: {getColor(letter, true)}">{letter.name}</span
+        >
+      {/each}
+    </div>
+  </div>
+  <div class="name nameSpan">
     {#each finishedName as letter}
       <span style="color: {letter.random}">{letter.name}</span>
     {/each}
   </div>
   <div class="header">full stack developer</div>
-  <p>
-    I am looking for a role in front end development primarily (with React, Vue,
-    or Svelte). I prefer Node or .NET for back end.
-  </p>
 
   <div class="links">
     <a href="https://github.com/flooyd">
@@ -87,10 +140,30 @@
     margin: 0px;
   }
 
+  .verticalNames {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    opacity: 0.5;
+  }
+
+  .verticalName {
+    display: flex;
+    flex-direction: column;
+  }
+
   span {
     margin: 0px;
     padding: 0px;
-    font-size: 119px;
+    text-align: center;
+  }
+
+  .nameSpan {
+    font-size: 13px;
+  }
+
+  .mb15 {
+    margin-bottom: 15px;
   }
 
   .name {
@@ -104,9 +177,8 @@
 
   .header {
     font-size: 35px;
-    color: var(--tea-green);
+    color: var(--light-green);
 
-    padding-bottom: 8px;
     width: fit-content;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -142,6 +214,11 @@
     span {
       margin: 0px !important;
       font-size: 35px !important;
+    }
+
+    .nameSpan,
+    .verticalSpan {
+      font-size: 13px !important;
     }
   }
 </style>
