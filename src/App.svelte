@@ -196,6 +196,7 @@
   }
 
   .about {
+    margin: 0px 20px;
     color: white;
   }
 
