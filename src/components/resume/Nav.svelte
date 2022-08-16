@@ -20,10 +20,10 @@
     font-size: 32px;
     padding: 8px 20px;
     padding-left: 20px;
-    background: var(--blue-sapphire);
+    background: var(--cultured);
     border-bottom: 4px solid var(--light-green);
     border-bottom: 4px solid var(--blue-sapphire);
-    color: white;
+    color: black;
   }
   .navbar-title {
     color: var(--oxford-blue);
@@ -40,6 +40,7 @@
     background: var(--blue-sapphire);
     border: 2px solid black;
     margin: 0px;
+    padding: 2px 8px;
   }
 
   button:hover {

@@ -49,6 +49,7 @@ export const styles = writable<Styles>({
 export const viewing = writable<boolean>(false);
 export const ready = writable(false);
 export const showModal = writable(false);
-export const selectedProperty = writable<string>("");
+export const selectedProperty = writable<string | null>(null);
+export const editAll = writable(false);
 
 export default resume;

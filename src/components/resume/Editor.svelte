@@ -37,7 +37,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     background: var(--cultured);
-    margin-bottom: 31px;
+    margin-bottom: 13px;
     width: 380px;
   }
 
@@ -61,16 +61,15 @@
     outline: 3px solid #333;
     border: none;
     padding: 4px;
-    margin-bottom: 8px;
     margin-left: 2px;
   }
 
   button {
-    color: red;
     margin-left: 8px;
     background: var(--cultured);
     color: black;
     border-radius: 8px;
+    padding: 2px 8px;
   }
 
   button:hover {
