@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { ready } from "../stores/resume";
   import * as animateScroll from "svelte-scrollto";
+  import { page } from "../stores/router";
+  import { fade } from "svelte/transition";
 
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
   let finishedName = [];
@@ -10,7 +11,6 @@
 
   onMount(() => {
     animateScroll.scrollToTop();
-    $ready = true;
   });
 
   function getRandomInt(min, max) {
@@ -89,7 +89,7 @@
   }, 100);
 </script>
 
-<main>
+<main transition:fade={{ duration: 100 }}>
   <div class="verticalNames">
     <div class="verticalName">
       {#each finishedName as letter}
@@ -188,7 +188,7 @@
       on:mouseleave={() => (resumeHovered = false)}
       on:mouseenter={() => (resumeHovered = true)}
       on:click={() => {
-        animateScroll.scrollTo({ element: "#resume", duration: 100 });
+        $page = "resume";
       }}
     >
       {#each finishedResume as letter}
@@ -218,16 +218,16 @@
 
 <style>
   main {
-    width: 100%;
     font-family: "Open Sans", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     margin: 0px;
     color: black;
     background: var(--blue-sapphire);
+    min-height: fit-content;
   }
 
   .verticalNames {
@@ -295,8 +295,10 @@
     margin-top: 20px;
     display: flex;
     background: var(--blue-sapphire);
-    padding: 16px;
+    padding: 16px 0px;
     border-radius: 8px;
+    width: 100vw;
+    justify-content: center;
   }
 
   .rightBorder {

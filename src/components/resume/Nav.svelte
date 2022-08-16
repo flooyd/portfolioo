@@ -27,6 +27,7 @@
   }
   .navbar-title {
     color: var(--oxford-blue);
+    font-size: 20px;
   }
 
   button {

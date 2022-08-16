@@ -6,12 +6,25 @@
   --light-green: hsla(134, 75%, 72%, 1);
   --tea-green: hsla(126, 81%, 88%, 1);
   --cultured: hsla(0, 0%, 97%, 1);
+  scrollbar-width: 0px;
 }
 
 html {
-  background: var(--blue-sapphire);
-  background: var(--cultured);
-  background: #fafafa;
+  height: 100%;
+  scrollbar-width: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+element::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+body {
+  height: 100%;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126

@@ -1,9 +1,12 @@
 <script>
   import FloydJones from "./components/FloydJones.svelte";
   import Resume from "./components/resume/Resume.svelte";
-
-  //scroll to 200px down the page
+  import { page } from "./stores/router";
 </script>
 
-<FloydJones />
-<Resume />
+{#if $page === "resume"}
+  <Resume />
+{/if}
+{#if $page === "floyd"}
+  <FloydJones />
+{/if}

@@ -44,7 +44,7 @@
   .editor label {
     display: flex;
     gap: 10px;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--blue-sapphire);
     font-weight: bold;
     padding-bottom: 2px;

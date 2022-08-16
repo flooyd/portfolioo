@@ -5,13 +5,14 @@
     selectedProperty,
     editAll,
   } from "../../stores/resume";
+  import { page } from "../../stores/router";
   import Editor from "./Editor.svelte";
   import Nav from "./Nav.svelte";
   import Output from "./Output.svelte";
-  import * as animateScroll from "svelte-scrollto";
   import Modal from "./Modal.svelte";
   import StyleModal from "./StyleModal.svelte";
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
 
   let y;
 
@@ -22,10 +23,11 @@
   });
 
   $: console.log($selectedProperty, $editAll);
+  $ready = true;
 </script>
 
 {#if $ready}
-  <section id="resume">
+  <main id="resume" transition:fade={{ duration: 100 }}>
     {#if $selectedProperty}
       <Modal><StyleModal property={$selectedProperty} /></Modal>
     {/if}
@@ -68,42 +70,39 @@
       <Output property="Github" />
       <Output property="LinkedIn" />
     </div>
-    {#if y > 0 && $selectedProperty === null && $editAll === false}
+    {#if $selectedProperty === null && $editAll === false}
       <div
         class="top"
         on:click={() => {
-          animateScroll.scrollToTop({ duration: 100 });
+          $page = "floyd";
         }}
       >
-        top
+        Back to Home Page
       </div>
     {/if}
-  </section>
+  </main>
 {/if}
 <svelte:window bind:scrollY={y} />
 
 <style>
-  :global(html) {
-    background: var(--cultured) !important;
-  }
-
-  section {
+  main {
     background: var(--cultured);
     font-family: "Roboto", sans-serif;
     padding-top: 0px;
     font-size: 16px;
-    overflow-y: auto;
     position: relative;
+    height: 100%;
   }
 
   div {
     height: 20px;
-    width: 100vw;
+    width: fit-content;
   }
 
   .toolbar {
-    margin-left: 20px;
+    padding-left: 20px;
     margin-bottom: 20px;
+    width: fit-content;
   }
 
   button {
@@ -122,19 +121,19 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 100%;
+    height: fit-content;
   }
 
   .outputs {
-    height: calc(100vh - 75px);
     margin: 0px 20px;
   }
 
   .top {
     position: fixed;
     bottom: 40px;
-    left: calc(50% - 35px);
-    width: 70px;
+    left: calc(50% - 80px);
+    width: fit-content;
+    padding: 2px 8px;
     text-align: center;
     background: var(--blue-sapphire);
     color: white;
