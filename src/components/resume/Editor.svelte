@@ -38,7 +38,7 @@
     justify-content: space-evenly;
     background: var(--cultured);
     margin-bottom: 13px;
-    width: 380px;
+    width: 100%;
   }
 
   .editor label {
