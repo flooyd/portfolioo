@@ -5,7 +5,6 @@
     selectedProperty,
     editAll,
   } from "../../stores/resume";
-  import { page } from "../../stores/router";
   import Editor from "./Editor.svelte";
   import Nav from "./Nav.svelte";
   import Output from "./Output.svelte";
@@ -70,16 +69,6 @@
       <Output property="Github" />
       <Output property="Linkedin" />
     </div>
-    {#if $selectedProperty === null && $editAll === false}
-      <div
-        class="top"
-        on:click={() => {
-          $page = "floyd";
-        }}
-      >
-        Back to Home Page
-      </div>
-    {/if}
   </main>
 {/if}
 <svelte:window bind:scrollY={y} />

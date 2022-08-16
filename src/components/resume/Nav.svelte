@@ -1,14 +1,18 @@
 <script>
   import resume, { viewing } from "../../stores/resume";
+  import page from "../../stores/router";
 </script>
 
 <div class="navbar">
   <div class="navbar-title">
     <span class="name">Resume Maker</span>
   </div>
-  <button on:click={() => ($viewing = !$viewing)}
-    >{$viewing ? "Edit" : "View"}</button
-  >
+  <div>
+    <button on:click={() => ($page = "floyd")}>Home</button>
+    <button on:click={() => ($viewing = !$viewing)}
+      >{$viewing ? "Edit" : "View"}</button
+    >
+  </div>
 </div>
 
 <style>
