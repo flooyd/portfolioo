@@ -40,7 +40,7 @@
         <StyleModal id="styleModal5" property="Email" />
         <StyleModal id="styleModal6" property="Phone" />
         <StyleModal id="styleModal7" property="Github" />
-        <StyleModal id="styleModal8" property="LinkedIn" />
+        <StyleModal id="styleModal8" property="Linkedin" />
       </Modal>
     {/if}
     <Nav />
@@ -57,7 +57,7 @@
         <Editor property="Email" label="Email" />
         <Editor property="Phone" label="Phone" />
         <Editor property="Github" label="Github" />
-        <Editor property="LinkedIn" label="LinkedIn" />
+        <Editor property="Linkedin" label="LinkedIn" />
       </div>
     {/if}
     <div class="outputs">
@@ -68,7 +68,7 @@
       <Output property="Email" />
       <Output property="Phone" />
       <Output property="Github" />
-      <Output property="LinkedIn" />
+      <Output property="Linkedin" />
     </div>
     {#if $selectedProperty === null && $editAll === false}
       <div

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import resume, { styles, selectedProperty } from "../../stores/resume";
+  import resume, { styles } from "../../stores/resume";
 
   export let property;
   export let id = null;
@@ -13,6 +13,7 @@
       ? JSON.parse(localStorage.getItem("styles"))
       : $styles;
     styleEntries = $styles[property];
+    console.log(styleEntries);
   });
 
   const saveStyles = () => {
@@ -20,8 +21,6 @@
     $styles = $styles;
     localStorage.setItem("styles", JSON.stringify($styles));
   };
-
-  $: console.log($styles);
 </script>
 
 <div class="styleModal" {id}>
