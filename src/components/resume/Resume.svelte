@@ -4,6 +4,7 @@
     ready,
     selectedProperty,
     editAll,
+    styles,
   } from "../../stores/resume";
   import Editor from "./Editor.svelte";
   import Nav from "./Nav.svelte";
@@ -19,10 +20,13 @@
     $resume = localStorage.getItem("resume")
       ? JSON.parse(localStorage.getItem("resume"))
       : $resume;
-  });
 
-  $: console.log($selectedProperty, $editAll);
-  $ready = true;
+    $styles = localStorage.getItem("styles")
+      ? JSON.parse(localStorage.getItem("styles"))
+      : $styles;
+
+    $ready = true;
+  });
 </script>
 
 {#if $ready}
@@ -51,10 +55,10 @@
       <div class="editors">
         <Editor property="Name" label="Name" />
         <Editor property="Subname" label="Subname" />
-        <Editor property="Website" label="Website" />
         <Editor property="Location" label="Location" />
         <Editor property="Email" label="Email" />
         <Editor property="Phone" label="Phone" />
+        <Editor property="Website" label="Website" />
         <Editor property="Github" label="Github" />
         <Editor property="Linkedin" label="LinkedIn" />
       </div>
@@ -62,10 +66,10 @@
     <div class="outputs">
       <Output property="Name" />
       <Output property="Subname" />
-      <Output property="Website" />
       <Output property="Location" />
       <Output property="Email" />
       <Output property="Phone" />
+      <Output property="Website" />
       <Output property="Github" />
       <Output property="Linkedin" />
     </div>
@@ -109,33 +113,16 @@
 
   .editors {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     height: fit-content;
   }
 
   .outputs {
     margin: 0px 20px;
-  }
-
-  .top {
-    position: fixed;
-    bottom: 40px;
-    left: calc(50% - 80px);
-    width: fit-content;
-    padding: 2px 8px;
-    text-align: center;
-    background: var(--blue-sapphire);
-    color: white;
-    border-radius: 8px;
-    border: 2px solid black;
-    user-select: none;
-  }
-
-  .top:hover {
-    background: var(--cultured);
-    color: black;
-    cursor: pointer;
-    border: 2px solid black;
+    position: relative;
+    height: fit-content;
+    background: var(--light-green);
+    width: calc(100% - 80px);
+    padding: 20px;
   }
 </style>

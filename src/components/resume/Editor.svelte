@@ -39,6 +39,7 @@
     background: var(--cultured);
     margin-bottom: 13px;
     width: 100%;
+    max-width: 300px;
   }
 
   .editor label {

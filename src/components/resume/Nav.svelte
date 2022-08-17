@@ -1,5 +1,5 @@
 <script>
-  import resume, { viewing } from "../../stores/resume";
+  import { viewing } from "../../stores/resume";
   import page from "../../stores/router";
 </script>
 
@@ -29,6 +29,7 @@
     border-bottom: 4px solid var(--blue-sapphire);
     color: black;
   }
+
   .navbar-title {
     color: var(--oxford-blue);
     font-size: 20px;

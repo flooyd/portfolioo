@@ -9,9 +9,6 @@
   let styleEntries = [];
 
   onMount(() => {
-    $styles = localStorage.getItem("styles")
-      ? JSON.parse(localStorage.getItem("styles"))
-      : $styles;
     styleEntries = $styles[property];
     console.log(styleEntries);
   });
@@ -93,6 +90,7 @@
   .styleModal {
     max-width: 400px;
     height: fit-content;
+    z-index: 100;
   }
 
   button {

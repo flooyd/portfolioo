@@ -34,6 +34,7 @@
     background: var(--cultured);
     border: 4px solid var(--light-green);
     overflow-y: auto;
+    z-index: 100;
   }
 
   .flex {
