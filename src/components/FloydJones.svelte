@@ -186,9 +186,6 @@
       class="resume"
       on:mouseleave={() => (resumeHovered = false)}
       on:mouseenter={() => (resumeHovered = true)}
-      on:click={() => {
-        $page = "resume";
-      }}
     >
       {#each finishedResume as letter}
         <span class="resume" style="color: {getColor(letter, false, true)}"
@@ -304,12 +301,6 @@
     border-right: 3px solid var(--light-green);
     padding-right: 10px;
     margin-right: 10px;
-  }
-
-  p {
-    color: white;
-    font-size: 20px;
-    padding: 0px 20px;
   }
 
   @media only screen and (max-width: 600px) {
