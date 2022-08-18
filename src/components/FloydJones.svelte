@@ -309,7 +309,7 @@
   }
 
   .techs {
-    background: var(--cultured);
+    background: white;
     border-radius: 8px;
     padding: 13px;
     margin: 13px 0px;
