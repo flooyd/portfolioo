@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import * as animateScroll from "svelte-scrollto";
-  import { page } from "../stores/router";
   import { fade } from "svelte/transition";
 
   let name = ["F", "L", "O", "Y", "D", " ", "J", "O", "N", "E", "S"];
