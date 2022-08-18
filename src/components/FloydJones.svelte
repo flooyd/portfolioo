@@ -187,11 +187,15 @@
       on:mouseleave={() => (resumeHovered = false)}
       on:mouseenter={() => (resumeHovered = true)}
     >
-      {#each finishedResume as letter}
-        <span class="resume" style="color: {getColor(letter, false, true)}"
-          >{letter.name}</span
-        >
-      {/each}
+      <a
+        href="https://docs.google.com/document/d/1LC0qpuq3r4Dz8qa042HTueD8aE2JwOXi2ApiFEY0kVI/edit?usp=sharing"
+      >
+        {#each finishedResume as letter}
+          <span class="resume" style="color: {getColor(letter, false, true)}"
+            >{letter.name}</span
+          >
+        {/each}
+      </a>
     </div>
     <div class="rightBorder" />
     <a href="https://github.com/flooyd">
@@ -301,6 +305,10 @@
     border-right: 3px solid var(--light-green);
     padding-right: 10px;
     margin-right: 10px;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   @media only screen and (max-width: 600px) {
