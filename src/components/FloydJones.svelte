@@ -176,28 +176,31 @@
       <span style="color: {letter.random}">{letter.name}</span>
     {/each}
   </div>
-  <div class="header">full stack developer</div>
+  <div class="header">Full Stack Developer</div>
   <div class="about">
-    I am looking for a role in front end development primarily (with React, Vue,
-    or Svelte). I prefer Node or .NET for back end
+    Searching for Full Stack opportunities remote or in Texas
+  </div>
+  <div
+    class="resume"
+    on:mouseleave={() => (resumeHovered = false)}
+    on:mouseenter={() => (resumeHovered = true)}
+  >
+    <a
+      href="https://docs.google.com/document/d/1LC0qpuq3r4Dz8qa042HTueD8aE2JwOXi2ApiFEY0kVI/edit?usp=sharing"
+    >
+      {#each finishedResume as letter}
+        <span style="color: {getColor(letter, false, true)}">{letter.name}</span
+        >
+      {/each}
+    </a>
+  </div>
+  <div class="techs">
+    <img src="images/react.png " alt="react" />
+    <img src="images/svelte.png " alt="svelte" />
+    <img src="images/nest.png " alt="nest" />
+    <img src="images/website.png" alt=".NET" />
   </div>
   <div class="links">
-    <div
-      class="resume"
-      on:mouseleave={() => (resumeHovered = false)}
-      on:mouseenter={() => (resumeHovered = true)}
-    >
-      <a
-        href="https://docs.google.com/document/d/1LC0qpuq3r4Dz8qa042HTueD8aE2JwOXi2ApiFEY0kVI/edit?usp=sharing"
-      >
-        {#each finishedResume as letter}
-          <span class="resume" style="color: {getColor(letter, false, true)}"
-            >{letter.name}</span
-          >
-        {/each}
-      </a>
-    </div>
-    <div class="rightBorder" />
     <a href="https://github.com/flooyd">
       <img
         class="link"
@@ -235,7 +238,7 @@
     width: 100%;
     justify-content: space-evenly;
     opacity: 0.5;
-    margin-bottom: 20px;
+    margin-bottom: 13px;
   }
 
   .verticalName {
@@ -258,6 +261,7 @@
     color: white;
     font-size: 32px;
     cursor: pointer;
+    padding: 13px 0px;
   }
 
   .mb15 {
@@ -265,16 +269,21 @@
   }
 
   .about {
-    margin: 0px 20px;
+    padding: 13px 0px;
     color: white;
+    font-size: 16px;
+    width: fit-content;
+    border-bottom: 4px solid var(--light-green);
+    text-align: center;
+    max-width: calc(100% - 20px);
   }
 
   .name {
-    padding-bottom: 15px;
     width: fit-content;
     font-size: 119px;
     color: var(--light-green);
-    border-bottom: 6px solid var(--blue-sapphire);
+    padding-bottom: 13px;
+    border-bottom: 4px solid var(--cultured);
     font-family: "Montserrat", sans-serif;
   }
 
@@ -282,8 +291,8 @@
     font-size: 35px;
     color: var(--light-green);
     width: fit-content;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 13px;
+    margin-bottom: 13px;
   }
 
   .link {
@@ -292,17 +301,27 @@
   }
 
   .links {
-    margin-top: 20px;
+    padding: 13px 0px;
     display: flex;
     background: var(--blue-sapphire);
-    padding: 16px 0px;
-    border-radius: 8px;
-    width: 100vw;
     justify-content: center;
+    align-items: center;
+  }
+
+  .techs {
+    background: var(--cultured);
+    border-radius: 8px;
+    padding: 13px;
+    margin: 13px 0px;
+    border: 3px solid black;
+  }
+
+  .techs img {
+    max-height: 50px;
+    margin: 0px 5px;
   }
 
   .rightBorder {
-    border-right: 3px solid var(--light-green);
     padding-right: 10px;
     margin-right: 10px;
   }
