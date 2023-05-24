@@ -186,7 +186,7 @@
     on:mouseenter={() => (resumeHovered = true)}
   >
     <a
-      href="https://docs.google.com/document/d/1LC0qpuq3r4Dz8qa042HTueD8aE2JwOXi2ApiFEY0kVI/edit?usp=sharing"
+      href="https://docs.google.com/document/d/1xdrAgS1eSb9YuTLOJdFViZ2MiPxjL1EJEkz7pa7eVCE"
     >
       {#each finishedResume as letter}
         <span style="color: {getColor(letter, false, true)}">{letter.name}</span
